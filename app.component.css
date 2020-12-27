@@ -1,0 +1,273 @@
+/* *******************  Navigation bar CSS styles**************** */
+
+body {
+    margin: 0 auto;
+    font-family: sans-serif;
+    font-size: 15px;
+   
+ }
+
+ .heading-white {
+     color: #fff;
+     font-weight: bold;
+     font-size: 20px;
+     opacity: 0.5px;
+ }
+ 
+ .heading-bottom {
+     padding-bottom: 10px;
+ }
+ 
+ .heading-dark {
+     color: #000000;
+     font-weight: bold;
+     font-size: 20px;
+     margin-left: 10px;
+     opacity: 0.5px;
+ }
+ 
+ .paragraph-white {
+     color: #fff;
+     opacity: 0.1rem;
+     line-height: 1.5;
+     opacity: 0.5;
+     font-size: 14px;
+ 
+ }
+ 
+ .paragraph-dark {
+     color: #000000;
+     opacity: 0.5px;
+     line-height: 1.5;
+     margin-left: 10px;
+     font-size: 14px;
+ 
+ }
+ 
+  /* top navbar settings */
+
+ .navbar {
+     padding-left: 0px;
+     padding-right: 0px;
+  } 
+ 
+ 
+ /*This is for brand logo*/
+ a:not([href]):not([tabindex]) {
+     color: #fff;
+ }
+ 
+ .navbar-brand {
+     font-size: 2rem;
+     font-weight: bold;
+     color: #fff; 
+ }
+ 
+ .nav-link {
+     margin-right: 20px;
+ }
+ 
+ 
+ .btn {
+     background-color: orange;
+ }
+ 
+ /* bottom navbar settings */
+
+ .navbar-collapse {
+     background-color: #000000;
+     color: #fff;
+     font-weight: bold;
+
+ }
+ 
+ a.nav-link:hover {
+     background-color: orange;
+ }
+
+ /* ************************END of NAVIGATION BAR CSS styles************************ */
+
+
+ /* ****************************Table style************************* */
+
+ /* Style inputs, select elements and textareas */
+input[type=text], [type=email], [type=password], select, textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+  }
+  
+  /* Style the label to display next to the inputs */
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+
+  /* #checkbox {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  } */
+
+  /* Style the submit button */
+  input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+  }
+  
+  /* Style the container */
+  /* .container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  } */
+  
+  /* Floating column for labels: 25% width */
+  .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+  
+  /* Floating column for inputs: 75% width */
+  .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+
+  /* ********************Table section****************** */
+
+.table-section {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.table-heading {
+    display: inline-block;
+}
+
+.open-button {
+    float: right;
+    margin-right: 0;
+    color: #000000;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 4px;
+}
+
+button.open-button:hover {
+    background-color: orange;
+}
+
+.edit_button {
+  background-color: rgb(212, 208, 201);
+  margin-right: 10px;
+  color: #000000;
+  /* font-weight: bold; */
+}
+.edit_button:hover {
+  background-color: orange;
+}
+
+.delete_button {
+  background-color: rgb(212, 208, 201);
+  margin-right: 10px;
+  color: #000000;
+}
+
+.delete_button:hover {
+  background-color: orange;
+}
+
+  /* ******************** THIS is for table edit and delete anchor tag style***************************** */
+
+
+ /* .hide{
+  display:none;
+}  */
+
+.hide-button {
+  visibility: hidden;
+}
+
+.display-button {
+  visibility: unset;
+}
+
+
+
+
+ /* ******************** FOOTER SECTION***************************** */
+
+.page-footer {
+    margin-top: 30px;
+}
+.top-footer {
+    color: #fff;
+}
+
+.top-footer ul {
+    padding: 0px;
+    list-style-type: none;
+}
+
+.top-footer li {
+    padding: 0px;
+    border-bottom: 1px solid #6f6f6f;
+    list-style-type: none;
+}
+
+.bottom-footer {
+    background-color: black;
+    
+    /* opacity: 0.1rem; */
+    padding: 20px 0;
+    color: #9D9D9D;
+}
+
+.footer-link {
+    color: orange;
+    
+    line-height: 2;
+    /* text-decoration: underline; */
+}
+
+a.footer-link:hover {
+    background-color: orangered;
+}
+
+ /* ******************** END FOOTER SECTION***************************** */
+
+ /* Validation styles */
+
+ .ng-invalid.ng-touched {
+  border-color: red;
+ }
+
+ .error-block {
+   color: red;
+ }

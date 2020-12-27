@@ -1,0 +1,477 @@
+
+
+<!-- Header section -->
+<header class="bg-dark">
+  <div class="container">
+      <!-- <div class="row"> -->
+
+      <div class="top-navbar">
+
+          <nav class="navbar navbar-light">
+              <a class=" brand navbar-brand">Basic 90</a>
+
+              <form class="form-inline">
+                  <input class="form-control mr-sm-2" type="search" placeholder="Search our website"
+                      aria-label="Search">
+                  <button class="btn btn-success my-2 my-sm-0" type="submit">Submit</button>
+              </form>
+          </nav>
+
+
+      </div>
+
+      <div class="bottom-navbar">
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                      <li class="nav-item active">
+                          <a class="nav-link" href="index.html">HOME <span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="table.html">TABLE</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="studentdataobject.html">STUDENT</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">TEXTLIINK3</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">TEXTLIINK4</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link nav-padding" href="#">TEXTLIINK5</a>
+                      </li>
+                  </ul>
+              </div>
+          </nav>
+      </div>
+      <!-- </div> -->
+
+
+  </div>
+</header>
+
+<!-- Table Section -->
+
+<div class="container table-section">
+  <div class="">
+      <h3 class="table-heading">Table</h3>
+      <button type="button" class="open-button" (click) = "createData()"
+               data-toggle="modal" data-target="#exampleModal">
+               <!-- onclick= "openCreateForm();" -->
+          Open
+      </button>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" 
+              aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <div class="container">
+                      <form [formGroup]="studentForm" (ngSubmit)="submitData()">
+
+                        <div class="row form-group">
+                          <div class="col-25">
+                            <label class="iD">ID</label>
+                          </div>
+                          <div class="col-75">
+
+                            <input  
+                                    type="number" id="unique_id" name="iD"
+                                    formControlName="iD" class="form-control"
+                                    placeholder="Unique number.."
+                                    readonly>
+                           
+                                    <!-- [readOnly]="isEdit" -->
+                                    <!-- [class.is-invalid]="studentForm.get('iD').invalid &&
+                                    studentForm.get('iD').touched" -->
+
+                            <!-- <small [class.d-none]="studentForm.get('iD').valid || 
+                                    studentForm.get('iD').untouched" 
+                                    class="text-danger">ID is required</small> -->
+<!-- 
+                              <div *ngIf="iD.invalid && iD.touched">
+                                <small></small>
+                              </div> -->
+                          </div>
+                        </div>
+              
+                        <div class="row form-group">
+                          <div class="col-25">
+                            <label class="validation-error" 
+                                    id="studentNameValidationError">Student Name</label>
+                          </div>
+                          <div class="col-75">
+                            <input type="text" id="studentName" 
+                                    name="studentName" 
+                                    class="form-control" value="" 
+                                    placeholder="Student Name.."
+                                    formControlName="studentName">
+
+                                    <span *ngIf="!studentName.valid && 
+                                          (studentName.touched || userSubmitted)" class="error-block">
+
+                                      Student name is required.
+                                    </span>
+                                   
+                          </div>
+                        </div>
+              
+                        <div class="row form-group">
+                          <div class="col-25">
+                            <label for="fname">Father Name</label>
+                          </div>
+                          <div class="col-75">
+                            <input type="text" id="fatherName" 
+                                  formControlName="fatherName" name="fatherName" 
+                                  class="form-control" value="" 
+                                  placeholder="Father name">
+
+                                  <span *ngIf="!fatherName.valid && 
+                                          (fatherName.touched || userSubmitted)" class="error-block">
+
+                                      Father name is required.
+                                    </span>
+                                
+                          </div>
+                        </div>
+              
+                        <!-- <div class="row">
+                          <div class="col-25">
+                              <label for="">Gender: </label>
+                          </div>
+                          <div class="col-75">
+                              <input type="radio" id="gender" name="gender" value="male">
+                              <label for="">Male</label>
+                              <input type="radio" id="gender" name="gender" value="female">
+                              <label for="">Female</label>
+                          </div>
+                       </div>
+              
+                       <div class="row">
+                          <div class="col-25">
+                            <label for="dob">Date of Birth:</label>
+                          </div>
+                          <div class="col-75">
+                            <input type="date" id="dob" name="dob" value="">
+                          </div>
+                        </div>
+                        
+                    
+                        <div class="row">
+                          <div class="col-25">
+                            <label for="Department">Department</label>
+                          </div>
+                          <div class="col-75">
+                            <select id="department" name="department">
+                              <option value="CSE">CSE</option>
+                              <option value="ECE">ECE</option>
+                              <option value="IT">IT</option>
+                            </select>
+                          </div>
+                        </div>
+              
+                        <div class="row">
+                          <div class="col-25">
+                            <label for="Address">Address</label>
+                          </div>
+                          <div class="col-75">
+                            <textarea id="address" name="address" value="" placeholder="Write something.." style="height:100px"></textarea>
+                          </div>
+                        </div> -->
+              
+                        <div class="row form-group">
+                          <div class="col-25">
+                            <label for="email">Email ID</label>
+                          </div>
+                          <div class="col-75">
+                            <input type="email" id="email" 
+                                    formControlName="email" name="email" 
+                                    class="form-control" value="" 
+                                    placeholder="Email">
+
+                                    <span *ngIf="!email.valid && (email.touched || userSubmitted)" class="error-block">
+
+                                      <span *ngIf="email.hasError('required')">
+                                        Email is required...
+                                      </span>
+
+                                      <span *ngIf="email.hasError('email')">
+                                        Email must be valid...
+                                      </span>
+
+                                    </span>
+                                    
+                          </div>
+                        </div>
+              
+                        <!-- <div class="row">
+                          <div class="col-25">
+                            <label for="age">Age</label>
+                          </div>
+                          <div class="col-75">
+                            <input type="text" id="age" name="age" value="" placeholder="Age">
+                          </div>
+                        </div>
+              
+                        <div class="row">
+                          <div class="col-25">
+                            <label for="password">Password</label>
+                          </div>
+                          <div class="col-75">
+                            <input type="password" id="password" name="password" value="" placeholder="Password">
+                          </div>
+                        </div>
+              
+                        <div class="row">
+                          <div class="col-25">
+                            <label for="password">Confirm Password</label>
+                          </div>
+                          <div class="col-75">
+                            <input type="password" id="confirmpassword" name="confirmpassword" value="" placeholder="Confirm Password">
+                          </div>
+                        </div>
+              
+                        <div class="row">
+                          <input type="checkbox" id="checkbox" value="">
+                          <label for=""> Agree to terms and conditions </label>
+                        </div>
+           -->
+              
+              
+                        <div class="row">
+                          <button type="submit" id="btnSubmit" 
+                                  [disabled]="studentForm.invalid"
+                                  class="btn btn-warning"
+                                  *ngIf="!isEdit"> Submit </button>   
+                        </div>
+
+                        <!-- (click)="submitData()" -->
+              
+                      </form>
+                    </div>
+
+              </div>
+              <div class="modal-footer">
+                <button id="exampleModalClose" type="button" class="btn btn-secondary" 
+                        data-dismiss="modal">Close</button>
+
+                <button type="button" id="btnEditSave"  
+                        class="btn btn-primary save-button"
+                        *ngIf="isEdit"
+                        (click)="submitData()">Save</button>
+                        <!-- onclick="editSelectedRowData();"-->
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+  
+  <table id="tableData" class="table table-hover table-dark">
+      <thead>
+        <tr>
+          <th scope="col">s.no</th>
+          <th scope="col">ID</th>
+          <th scope="col">Student Name</th>
+          <th scope="col">Father Name</th>
+          <!-- <th scope="col">Gender</th>
+          <th scope="col">Date of Birth</th>
+          <th scope="col">Department</th>
+          <th scope="col">Address</th> -->
+          <th scope="col">Email ID</th>
+          <!-- <th scope="col">Age</th>
+          <th scope="col">Password</th>
+          <th scope="col">Confirm Password</th> -->
+        </tr>
+      </thead>
+      <tbody id="tableData_body">
+        <tr  *ngFor = "let data of studentList; let i = index">
+          <td>{{i +1}}</td>
+          <td>{{data.iD}}</td>
+          <td>{{data.studentName}}</td>
+          <td>{{data.fatherName}}</td>
+          <td>{{data.email}}</td>
+          <td>
+            <button type="button" (click)="editData(data.iD)" 
+            class="edit_button btn btn-primary"
+            data-toggle="modal" data-target="#exampleModal">Edit</button>
+            
+            <button type="button" (click)="deleteData(i)" 
+            class="delete_button btn btn-primary">Delete</button>
+          </td>
+
+        </tr>
+        
+      </tbody>
+    </table>
+</div>
+
+<!-- Footer Section -->
+
+<footer class="page-footer font-small bg-dark">
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left top-footer">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">LINK BLOCK</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a class="footer-link" href="#!">link 1</a>
+          </li>
+       
+          <li>
+            <a class="footer-link" href="#!">link 2</a>
+          </li>
+       
+          <li>
+            <a class="footer-link" href="#!">link 3</a>
+          </li>
+         
+          <li>
+            <a class="footer-link" href="#!">link 4</a>
+          </li>
+       
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">LINK BLOCK</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a class="footer-link" href="#!">Link 1</a>
+          </li>
+        
+          <li>
+            <a class="footer-link" href="#!">Link 2</a>
+          </li>
+       
+          <li>
+            <a class="footer-link" href="#!">Link 3</a>
+          </li>
+       
+          <li>
+            <a class="footer-link" href="#!">Link 4</a>
+          </li>
+     
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">LINK BLOCK</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a class="footer-link" href="#!">Link 1</a>
+          </li>
+      
+          <li>
+            <a class="footer-link" href="#!">Link 2</a>
+          </li>
+      
+          <li>
+            <a class="footer-link" href="#!">Link 3</a>
+          </li>
+       
+          <li>
+            <a class="footer-link" href="#!">Link 4</a>
+          </li>
+       
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">LINK BLOCK</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a class="footer-link" href="#!">Link 1</a>
+          </li>
+      
+          <li>
+            <a class="footer-link" href="#!">Link 2</a>
+          </li>
+       
+          <li>
+            <a class="footer-link" href="#!">Link 3</a>
+          </li>
+      
+          <li>
+            <a class="footer-link" href="#!">Link 4</a>
+          </li>
+      
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+
+  <div class=" bottom-footer">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <h6>Copyright © 2009-2020 All Rights Reserved-Domain Name</h6>
+        </div>
+  
+        <div class="col-lg-6 " style="text-align: right;">
+          <h6>Template by OS Template</h6>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+ 
+  
+  <!-- Copyright -->
+
+</footer>
